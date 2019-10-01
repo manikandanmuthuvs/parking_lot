@@ -2,10 +2,12 @@ package com.manikandanmuthuv;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.*;
-
 
 public class ParkingLotTest {
 
@@ -16,37 +18,39 @@ public class ParkingLotTest {
     public void CreateParkingLot() {
         parkingLot = new ParkingLot();
     }
+
     @Test
     public void CreateParkingLotWithEmptySlots() {
-        //Arrange
+        // Arrange
         String expectedParkingLot = "Created a parking lot with " + numberOfSlots + " slots";
-        //Act
+        // Act
         String actualParkingLot = parkingLot.Create(numberOfSlots);
-        //Assert
+        // Assert
         assertThat(expectedParkingLot, is(actualParkingLot));
     }
 
     @Test
-    public void allocateOnFirstAvailableSlot() {
-        //Arrange  
-        parkingLot.Create(numberOfSlots);        
+    public void AllocateOnFirstAvailableSlot() {
+        // Arrange
+        parkingLot.Create(numberOfSlots);
         String regNumber = "KA-01-HH-1234";
         String color = "White";
         Car car = new Car(regNumber, color);
- 
-        //Act
+
+        // Act
         String result = parkingLot.AllocateSlot(car);
 
-        //Assert
+        // Assert
         assertThat("Allocated slot number: 1", is(result));
 
     }
+
     @Test
-    public void allocateOnAvailableSlotNearestToEntry() {
-        //Arrange
+    public void AllocateOnAvailableSlotNearestToEntry() {
+        // Arrange
         int fromSlotNumber_2 = 2;
         int fromSlotNumber_4 = 4;
-        CreateParkingLotWithCarsOnAllSlots(numberOfSlots);    
+        CreateParkingLotWithCarsOnAllSlots(numberOfSlots);
         parkingLot.LeaveSlot(fromSlotNumber_2);
         parkingLot.LeaveSlot(fromSlotNumber_4);
 
@@ -54,10 +58,10 @@ public class ParkingLotTest {
         String color = "White";
         Car car = new Car(regNumber, color);
 
-        //Act
+        // Act
         String output = parkingLot.AllocateSlot(car);
 
-        //Assert
+        // Assert
         assertThat("Allocated slot number: 2", is(output));
 
     }
@@ -65,19 +69,40 @@ public class ParkingLotTest {
     @Test
     public void LeaveSlot() {
 
-        //Arrange
+        // Arrange
         int fromSlotNumber = 4;
         CreateParkingLotWithCarsOnAllSlots(numberOfSlots);
 
-        //Act
+        // Act
         String actual = parkingLot.LeaveSlot(fromSlotNumber);
 
-        //Asset
+        // Asset
         assertThat("Slot number " + fromSlotNumber + " is free", is(actual));
     }
 
+    @Test
+    public void ParkingLotStatusWithSlotNoCarRegNoCarColor() {
+
+        // Arrange
+        int fromSlotNumber_4 = 4;
+        CreateParkingLotWithCarsOnAllSlots(numberOfSlots);
+        parkingLot.LeaveSlot(fromSlotNumber_4);
+        String expectedLotStatus = "";
+        expectedLotStatus += String.format("%10s %10s %10s\n", "Slot No.", "Registration No", "Color");
+        expectedLotStatus += String.format("%10s %10s %10s\n", "1", "KA-01-HH-1234", "White");
+        expectedLotStatus += String.format("%10s %10s %10s\n", "2", "KA-01-HH-9999", "White");
+        expectedLotStatus += String.format("%10s %10s %10s\n", "3", "KA-01-BB-0001", "Black");
+        expectedLotStatus += String.format("%10s %10s %10s\n", "5", "KA-01-HH-2701", "Blue");
+        expectedLotStatus += String.format("%10s %10s %10s\n", "6", "KA-01-HH-3141", "Black");
+        //Act
+        String actualLotStatus = ParkingLot.Status();
+
+        assertThat(expectedLotStatus, is(equalTo(actualLotStatus)));
+
+    }
+
     private void CreateParkingLotWithCarsOnAllSlots(int numberOfSlots) {
-        
+
         parkingLot.Create(numberOfSlots);
 
         String regNumber_car1 = "KA-01-HH-1234";
@@ -99,11 +124,11 @@ public class ParkingLotTest {
         String regNumber_car5 = "KA-01-HH-2701";
         String color_car5 = "Blue";
         Car car5 = new Car(regNumber_car5, color_car5);
-       
+
         String regNumber_car6 = "KA-01-HH-3141";
         String color_car6 = "Black";
         Car car6 = new Car(regNumber_car6, color_car6);
-     
+
         parkingLot.AllocateSlot(car1);
         parkingLot.AllocateSlot(car2);
         parkingLot.AllocateSlot(car3);
@@ -112,5 +137,4 @@ public class ParkingLotTest {
         parkingLot.AllocateSlot(car6);
     }
 
-   
 }
