@@ -35,6 +35,7 @@ public class ParkingLot {
         // substract 1 to get the right slot number as index starts from 0
         if (slot.get(fromSlotNumber - 1).getRegNumber() != null) {
             slot.put(fromSlotNumber - 1, new Car());
+            totalNoOfCarsInSlots -= 1;
         }
         return "Slot number " + fromSlotNumber + " is free";
 
