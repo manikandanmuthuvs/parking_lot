@@ -2,7 +2,7 @@ Enter the the following command in the console of the root directory of the proj
 To run clean install the ParkingLot app and Run all the unit test,
 ./bin/setup.sh
 To execute the ParkingLot app,
-mvn exec:java -Dexec.mainClass=com.manikandanmuthuv.App
+./bin/parking_lot.sh
 file_input.txt
 
 Requirements:
