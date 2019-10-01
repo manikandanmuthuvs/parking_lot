@@ -69,6 +69,19 @@ public class ParkingLot {
         }
         return String.join(",",cars);
     }
+    public String FindAllSlotNumbersByCarColor(String color) {
+        List<String> cars = new ArrayList<String>();
+        for (int slotNumberKey = 0; slotNumberKey < slot.size(); slotNumberKey++) {
+            try {
+                if (slot.get(slotNumberKey).getColor().equals(color)) {
+                    cars.add(String.valueOf(slotNumberKey + 1));             
+                }  
+            } catch (Exception e) {
+            }
+                                  
+        }
+        return String.join(",",cars);
+    }
     private int getAvailableSlotNearestToEntry() {
         int slotNumber;
         for (slotNumber = 0; slotNumber < slot.size(); slotNumber++) {

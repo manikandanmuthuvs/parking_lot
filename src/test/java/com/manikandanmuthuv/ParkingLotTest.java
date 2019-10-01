@@ -148,10 +148,26 @@ public class ParkingLotTest {
         List<String> expectedSlotNumbers = new ArrayList<String>();
         expectedSlotNumbers.add("1");
         expectedSlotNumbers.add("2");
+        CreateParkingLotWithCarsOnAllSlots(numberOfSlots);
+        //Act
+        String actualSlotNumbers = parkingLot.FindAllSlotNumbersByCarColor(color);
 
+        //Assert
+        assertThat(String.join(",", expectedSlotNumbers), is(equalTo(actualSlotNumbers)));
+
+    }
+    @Test
+    public void FindSlotNumbersOfAllCarsWithCarRegNumber() {
+
+        //Arrange
+        String regNumber = "KA-01-HH-3141";
+        List<String> expectedSlotNumbers = new ArrayList<String>();
+        expectedSlotNumbers.add("6");
         CreateParkingLotWithCarsOnAllSlots(numberOfSlots);
 
-        String actualSlotNumbers = ParkingLot.FindAllSlotNumbersByCarColor(color);
+        //Act
+        String actualSlotNumbers = parkingLot.FindAllSlotNumbersByCarRegNo(regNumber);
+
         assertThat(String.join(",",expectedSlotNumbers), is(equalTo(actualSlotNumbers)));
 
     }
