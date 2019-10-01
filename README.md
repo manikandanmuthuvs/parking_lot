@@ -1,9 +1,19 @@
+Followed these practices while developing this app,
+
+information hiding / encapsulation
+single responsibility
+separation of concerns
+KISS (Keep it simple (and) stupid.)
+DRY (Don't repeat yourself.)
+"Tell! Don't ask."
+Law of demeter ("Don't talk to strangers!")
+
 Enter the the following command in the console of the root directory of the project,
 To run clean install the ParkingLot app and Run all the unit test,
-./bin/setup.sh
+   ./bin/setup.sh
 To execute the ParkingLot app,
-./bin/parking_lot.sh
-file_input.txt
+  ./bin/parking_lot.sh
+  file_input.txt
 
 Requirements:
 
@@ -52,12 +62,4 @@ $ slot_number_for_registration_number KA-01-HH-3141 6
 $ slot_number_for_registration_number MH-04-AY-1111 Not found
 \$ exit
 
-Followed these practices while developing this app,
 
-information hiding / encapsulation
-single responsibility
-separation of concerns
-KISS (Keep it simple (and) stupid.)
-DRY (Don't repeat yourself.)
-"Tell! Don't ask."
-Law of demeter ("Don't talk to strangers!")
