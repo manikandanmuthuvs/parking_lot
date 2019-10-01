@@ -2,6 +2,8 @@ package com.manikandanmuthuv;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -122,6 +124,21 @@ public class ParkingLotTest {
 
     }
 
+    @Test
+    public void FindRegNumbersOfAllCarsByItsColor() {
+
+        String color = "White";
+        List<String> expectedRegNumbersOfAllCars = new ArrayList<String>();
+        expectedRegNumbersOfAllCars.add("KA-01-HH-1234");
+        expectedRegNumbersOfAllCars.add("KA-01-HH-1234");
+
+        CreateParkingLotWithCarsOnAllSlots(numberOfSlots);
+
+        String actualRegNumbersOfAllCars = ParkingLot.FindRegNumbersOfAllCarsByItsColor(color);
+        assertThat(String.join(",",expectedRegNumbersOfAllCars), is(equalTo(actualRegNumbersOfAllCars)));
+
+    }
+    
     private void CreateParkingLotWithCarsOnAllSlots(int numberOfSlots) {
 
         parkingLot.Create(numberOfSlots);
