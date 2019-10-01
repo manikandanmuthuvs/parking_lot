@@ -20,9 +20,9 @@ public class ParkingLotTest {
         //Assert
         assertThat(expectedParkingLot, is(actualParkingLot));
     }
-    
+
     @Test
-    public void allocatCarInSlot() {
+    public void allocateCarInSlot() {
         //Arrange
         ParkingLot ParkingLot = new ParkingLot();
         ParkingLot.Create(numberOfSlots);
