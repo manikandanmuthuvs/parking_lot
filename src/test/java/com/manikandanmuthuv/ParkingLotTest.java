@@ -13,8 +13,9 @@ public class ParkingLotTest {
         //Arrange
         int numberOfSlots = 6;
         String expectedParkingLot = "Created a parking lot with " + numberOfSlots + " slots";
+        ParkingLot parkingLot = new ParkingLot();
         //Act
-        String actualParkingLot = "";
+        String actualParkingLot = parkingLot.Create(numberOfSlots);
         //Assert
         assertThat(expectedParkingLot, is(actualParkingLot));
     }
