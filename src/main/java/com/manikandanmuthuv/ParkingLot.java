@@ -93,6 +93,7 @@ public class ParkingLot {
             }
             
         }
+        if (cars.size() == 0) cars.add("Not found");
         return String.join(",",cars);
     }
     private int getAvailableSlotNearestToEntry() {
