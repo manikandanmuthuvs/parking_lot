@@ -1,15 +1,15 @@
 Followed these practices while developing this app,
 
-information hiding / encapsulation
-single responsibility
-separation of concerns
-KISS (Keep it simple (and) stupid.)
-DRY (Don't repeat yourself.)
-"Tell! Don't ask."
-Law of demeter ("Don't talk to strangers!")
+•	Encapsulation
+•	Single responsibility
+•	Separation of concerns
+•	KISS (Keep it simple (and) stupid.)
+•	DRY (Don't repeat yourself.)
+•	"Tell! Don't ask."
+•	Law of demeter ("Don't talk to strangers!")
 
-Enter the the following command in the console of the root directory of the project,
-To run clean install the ParkingLot app and Run all the unit test,
+Run the following command in the console of the root directory of the project,
+To clean install all the dependency packages and run all the unit test, 
    ./bin/setup.sh
 To execute the ParkingLot app,
   ./bin/parking_lot.sh
@@ -41,7 +41,7 @@ Created a parking lot with 6 slots Allocated slot number: 1 Allocated slot numbe
 
 Example: Interactive To install all dependencies, compile and run tests: $ bin/setup 
  To run the program and launch the shell: $ bin/parking_lot
-Assuming a parking lot with 6 slots, the following commands should be run in sequence by typing them in at a prompt and should produce output as described below the command. Note that ​exit ​terminates the process and returns control to the shell.
+Assuming a parking lot with 6 slots, the following commands should be run in sequence by typing them in at a prompt and should produce output as described below the command. Note that exit terminates the process and returns control to the shell.
 
 $ create_parking_lot 6 Created a parking lot with 6 slots 
  $ park KA-01-HH-1234 White Allocated slot number: 1
