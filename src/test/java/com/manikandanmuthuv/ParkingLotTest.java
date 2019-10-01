@@ -160,9 +160,9 @@ public class ParkingLotTest {
     public void FindSlotNumbersOfAllCarsWithCarRegNumber() {
 
         //Arrange
-        String regNumber = "KA-01-HH-3141";
+        String regNumber = "KA-01-HH-2701";
         List<String> expectedSlotNumbers = new ArrayList<String>();
-        expectedSlotNumbers.add("6");
+        expectedSlotNumbers.add("5");
         CreateParkingLotWithCarsOnAllSlots(numberOfSlots);
 
         //Act
