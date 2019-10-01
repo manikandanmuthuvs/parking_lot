@@ -2,8 +2,6 @@ package com.manikandanmuthuv;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -95,9 +93,32 @@ public class ParkingLotTest {
         expectedLotStatus += String.format("%10s %10s %10s\n", "5", "KA-01-HH-2701", "Blue");
         expectedLotStatus += String.format("%10s %10s %10s\n", "6", "KA-01-HH-3141", "Black");
         //Act
-        String actualLotStatus = ParkingLot.Status();
+        String actualLotStatus = parkingLot.Status();
 
         assertThat(expectedLotStatus, is(equalTo(actualLotStatus)));
+
+    }
+    @Test
+    public void AllocateSlotWhenParkingLotIsFull() {
+        // Arrange
+        int fromSlotNumber_4 = 4;
+        CreateParkingLotWithCarsOnAllSlots(numberOfSlots);
+        parkingLot.LeaveSlot(fromSlotNumber_4);
+
+        String regNumber = "KA-01-P-333";
+        String color = "White";
+        Car car = new Car(regNumber, color);
+        parkingLot.AllocateSlot(car);
+
+        String regNumber_7 = "DL-12-AA-9999";
+        String color_7 = "White";
+        Car car_7 = new Car(regNumber_7, color_7);
+
+        // Act
+        String output = parkingLot.AllocateSlot(car_7);
+
+        // Assert
+        assertThat("Sorry, parking lot is full", is(output));
 
     }
 
