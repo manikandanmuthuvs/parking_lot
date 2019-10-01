@@ -1,6 +1,8 @@
 package com.manikandanmuthuv;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ParkingLot {
@@ -54,6 +56,18 @@ public class ParkingLot {
             }
         }        
         return formattedText;       
+    }
+    public String FindRegNumbersOfAllCarsByItsColor(String color) {
+        List<String> cars = new ArrayList<String>();
+        for (int slotNumberKey = 0; slotNumberKey < slot.size(); slotNumberKey++) {
+            try {
+                if (slot.get(slotNumberKey).getColor().equals(color)) {     
+                    cars.add(slot.get(slotNumberKey).getRegNumber());                
+                } 
+            } catch (Exception e) {
+            }                                   
+        }
+        return String.join(",",cars);
     }
     private int getAvailableSlotNearestToEntry() {
         int slotNumber;

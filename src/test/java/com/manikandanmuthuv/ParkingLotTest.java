@@ -130,11 +130,11 @@ public class ParkingLotTest {
         String color = "White";
         List<String> expectedRegNumbersOfAllCars = new ArrayList<String>();
         expectedRegNumbersOfAllCars.add("KA-01-HH-1234");
-        expectedRegNumbersOfAllCars.add("KA-01-HH-1234");
+        expectedRegNumbersOfAllCars.add("KA-01-HH-9999");
 
         CreateParkingLotWithCarsOnAllSlots(numberOfSlots);
 
-        String actualRegNumbersOfAllCars = ParkingLot.FindRegNumbersOfAllCarsByItsColor(color);
+        String actualRegNumbersOfAllCars = parkingLot.FindRegNumbersOfAllCarsByItsColor(color);
         assertThat(String.join(",",expectedRegNumbersOfAllCars), is(equalTo(actualRegNumbersOfAllCars)));
 
     }
