@@ -20,17 +20,11 @@ public class ParkingLot {
     }
 
     public String AllocateSlot(Car car) {
-        int availableSlotNumber = 0;
-
-        for (int slotNumberKey = 0; slotNumberKey < slot.size(); slotNumberKey++) {
-            if (slot.get(slotNumberKey).getRegNumber() == null) {
-                // add 1 to get the right slot number as index starts from 0
-                availableSlotNumber = slotNumberKey + 1;
-                slot.put(slotNumberKey, car);
-                break;
-            }
-        }
-        return "Allocated slot number: " + availableSlotNumber;
+        int availableSlotNumber = getAvailableSlotNearestToEntry();
+        slot.put(availableSlotNumber, car);
+        int slotNumber = availableSlotNumber + 1;
+        // add +1 as index starts from 0
+        return "Allocated slot number: " + slotNumber; 
     }
 
     public String LeaveSlot(int fromSlotNumber) {
@@ -40,5 +34,15 @@ public class ParkingLot {
         }
         return "Slot number " + fromSlotNumber + " is free";
 
+    }
+
+    private int getAvailableSlotNearestToEntry() {
+        int slotNumber;
+        for (slotNumber = 0; slotNumber < slot.size(); slotNumber++) {
+            if (slot.get(slotNumber).getRegNumber() == null) {
+                break;
+            }
+        }
+        return slotNumber;
     }
 }
