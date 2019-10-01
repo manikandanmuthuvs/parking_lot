@@ -1,2 +1,1 @@
-mvn clean install
-
+mvn -f pom.xml clean install -U

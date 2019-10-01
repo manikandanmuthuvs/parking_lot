@@ -88,7 +88,7 @@ public class ParkingLotTest {
         CreateParkingLotWithCarsOnAllSlots(numberOfSlots);
         parkingLot.LeaveSlot(fromSlotNumber_4);
         String expectedLotStatus = "";
-        expectedLotStatus += String.format("%10s %10s %10s\n", "Slot No.", "Registration No", "Color");
+        expectedLotStatus += String.format("%10s %10s %10s\n", "Slot No.", "Registration No", "Colour");
         expectedLotStatus += String.format("%10s %10s %10s\n", "1", "KA-01-HH-1234", "White");
         expectedLotStatus += String.format("%10s %10s %10s\n", "2", "KA-01-HH-9999", "White");
         expectedLotStatus += String.format("%10s %10s %10s\n", "3", "KA-01-BB-0001", "Black");
