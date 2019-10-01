@@ -80,6 +80,20 @@ public class ParkingLot {
             }
                                   
         }
+        return String.join(",", cars);
+    }
+    public String FindAllSlotNumbersByCarRegNo(String regNumber) {
+        List<String> cars = new ArrayList<String>();
+        for (int slotNumberKey = 0; slotNumberKey < slot.size(); slotNumberKey++) {
+            try {
+                if (slot.get(slotNumberKey).getRegNumber().equals(regNumber)) {
+                    cars.add(String.valueOf(slotNumberKey + 1));             
+                }
+            } catch (Exception e) {
+            }
+            
+        }
+        if (cars.size() == 0) cars.add("Not found");
         return String.join(",",cars);
     }
     private int getAvailableSlotNearestToEntry() {
